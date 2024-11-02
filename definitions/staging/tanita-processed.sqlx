@@ -1,0 +1,12 @@
+config {
+ type: "view",
+ schema: "keto",
+ description: "Processed version of tanita-base",
+ tags: ["staging"]
+}
+
+
+select
+ idouble_field_27 as Body_Weithg
+from
+ ${ref("tanita-base")}
