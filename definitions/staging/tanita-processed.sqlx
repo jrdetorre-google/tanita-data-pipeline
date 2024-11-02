@@ -2,11 +2,31 @@ config {
  type: "table",
  schema: "keto",
  description: "Processed version of tanita-base",
- tags: ["staging"]
+ tags: ["staging","tanita"]
 }
 
 
 select
- double_field_27 as Body_Weithg
+ date_field_13 as Date,
+ time_field_15 as Time,
+ double_field_27 as Body_Weithg,
+ double_field_29 AS BMI,
+ double_field_31 AS Fat_Body_Perc,
+ double_field_33 AS Fat_R_Arm_Perc,
+ double_field_35 AS Fat_L_Arm_Perc,
+ double_field_37 AS Fat_R_Leg_Perc,
+ double_field_39 AS Fat_L_Leg_Perc,
+ double_field_41 AS Fat_Trunk_Perc,
+ double_field_43 AS Musc_Body_Kg,
+ double_field_45 AS Musc_R_Arm_Kg,
+ double_field_47 AS Musc_L_Arm_Kg,
+ double_field_49 AS Musc_R_Leg_Kg,
+ double_field_51 AS Musc_L_Leg_Kg,
+ double_field_53 AS Musc_Trunk_Kg,
+ double_field_55 AS Bones_Kg,
+ int64_field_57 AS Visc_Index,
+ int64_field_59 AS DCI_kCal,
+ int64_field_61 AS Metab_Age,
+ double_field_63 AS H2O_Perc
 from
  ${ref("tanita-base")}
