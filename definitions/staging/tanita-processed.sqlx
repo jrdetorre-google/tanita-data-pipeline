@@ -7,6 +7,6 @@ config {
 
 
 select
- idouble_field_27 as Body_Weithg
+ double_field_27 as Body_Weithg
 from
  ${ref("tanita-base")}
