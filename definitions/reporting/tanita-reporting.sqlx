@@ -1,0 +1,15 @@
+config {
+ type: "table",
+ schema: "keto",
+ description: "Reporting tanita data",
+ tags: ["reporting","tanita"]
+}
+
+SELECT * EXCEPT(row_num)
+FROM (
+  SELECT *,
+    ROW_NUMBER() OVER (PARTITION BY M_Date ORDER BY Body_Weight DESC) AS row_num
+  FROM ${ref("tanita-processed")}
+)
+WHERE row_num = 1
+AND M_Date > DATETIME("2024:09:15")
