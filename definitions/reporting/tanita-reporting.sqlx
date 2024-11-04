@@ -1,5 +1,5 @@
 config {
- type: "view",
+ type: "table",
  schema: "keto",
  description: "Reporting tanita data",
  tags: ["reporting","tanita"]
