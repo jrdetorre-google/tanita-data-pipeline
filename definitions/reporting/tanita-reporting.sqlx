@@ -12,4 +12,4 @@ FROM (
   FROM ${ref("tanita-processed")}
 )
 WHERE row_num = 1
-AND M_Date > DATETIME("2024/09/15")
+AND M_Date > DATETIME("2024-09-15")
