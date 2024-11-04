@@ -7,7 +7,7 @@ config {
 
 SELECT * EXCEPT(row_num)
 FROM (
-  SELECT *, Body_Weight*Fat_Body_Perc/100 AS Body_Fat_Kg,
+  SELECT *, ROUND(Body_Weight*Fat_Body_Perc/100,2) AS Body_Fat_Kg,
     ROW_NUMBER() OVER (PARTITION BY M_Date ORDER BY Body_Weight DESC) AS row_num
   FROM ${ref("tanita-processed")}
 )
