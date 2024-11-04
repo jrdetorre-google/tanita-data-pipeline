@@ -30,3 +30,4 @@ select
  double_field_63 AS H2O_Perc
 from
  ${ref("tanita-base")}
+ where int64_field_61 > 39
