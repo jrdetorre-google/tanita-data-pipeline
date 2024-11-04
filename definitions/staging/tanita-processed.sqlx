@@ -10,7 +10,7 @@ select
  date_field_13 as M_Date,
  time_field_15 as M_Time,
  DATETIME(date_field_13, time_field_15) as M_DateTime,
- double_field_27 as Body_Weithg,
+ double_field_27 as Body_Weight,
  double_field_29 AS BMI,
  double_field_31 AS Fat_Body_Perc,
  double_field_33 AS Fat_R_Arm_Perc,
