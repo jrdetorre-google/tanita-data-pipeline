@@ -1,5 +1,6 @@
 config {
  type: "incremental",
+ uniqueKey: ["Activity_Timestamp"],
  schema: "keto",
  description: "Incremental version of garmin-base",
  tags: ["staging","garmin"]
@@ -10,4 +11,4 @@ select
  Date as Activity_Timestamp, EXTRACT(DATE FROM Date) As Activity_Date, Activity_Type, Calories, Time as Activity_Duration, Avg_HR, Max_HR, Aerobic_TE, Title, Distance, Moving_Time, Elapsed_Time, Min_Elevation, Max_Elevation, Avg_Bike_Cadence, Max_Bike_Cadence, Avg_Speed, Max_Speed, Total_Ascent, Total_Descent
 from
  ${ref("garmin-base")}
--- where int64_field_61 > 39
+ ${ when(incremental(), `WHERE Date > (SELECT MAX(Date) FROM ${self()})`) }
