@@ -30,4 +30,4 @@ SELECT
   SAFE_CAST(Total_Ascent AS FLOAT64) AS Total_Ascent,
   SAFE_CAST(Total_Descent AS FLOAT64) AS Total_Descent
 FROM
-  ${ref("garmin-base")} ${when(incremental(), `WHERE Date > (SELECT MAX(Date) FROM ${self()})`)}
+  ${ref("garmin-base")} ${when(incremental(), `WHERE Date > (SELECT MAX(Activity_Timestamp) FROM ${self()})`)}
