@@ -1,0 +1,21 @@
+config {
+    type: "table",
+    schema: "keto",
+    description: "Reporting garmin data",
+    tags: ["reporting", "garmin"]
+}
+
+SELECT
+  Activity_Date,
+  COUNT(Activity_Type) AS Total_Activities,
+  SUM(Total_Calories) AS Total_Calories,
+  SUM(Total_Seconds) AS Total_Seconds,
+  AVG(Average_HR) AS Average_HR,
+  MAX(Max_HR) AS Max_HR,
+  AVG(Average_Aerobic_TE) AS Average_Aerobic_TE
+FROM
+  ${ref("garmin-processed")}
+WHERE
+  Activity_Date > '2024-09-15'
+GROUP BY
+  Activity_Date
