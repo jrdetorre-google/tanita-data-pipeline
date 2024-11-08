@@ -19,6 +19,4 @@ FROM
   ${ref("garmin-staging")} 
 GROUP BY
   Activity_Date,
-  Activity_Type,
-  Title
-  ORDER BY 1  ,2
+  Activity_Type
