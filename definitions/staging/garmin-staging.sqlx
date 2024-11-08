@@ -14,11 +14,25 @@ SELECT
   Activity_Type,
   SAFE_CAST(Calories AS INT64) AS Calories,
   Total_Time,
+  ( EXTRACT(HOUR
+    FROM
+      Total_Time) * 60 ) + ( EXTRACT(MINUTE
+    FROM
+      Total_Time) ) + ROUND(EXTRACT(SECOND
+    FROM
+      Total_Time)/60,0) AS Total_Minutes,
+  ( EXTRACT(HOUR
+    FROM
+      Total_Time) * 3600 ) + ( EXTRACT(MINUTE
+    FROM
+      Total_Time) * 60 ) + EXTRACT(SECOND
+  FROM
+    Total_Time) AS Total_Seconds,
   SAFE_CAST(Avg_HR AS INT64) AS Avg_HR,
   SAFE_CAST(Max_HR AS INT64) AS Max_HR,
   SAFE_CAST(Aerobic_TE AS FLOAT64) AS Aerobic_TE,
   Title,
-  SAFE_CAST(DistancE  AS FLOAT64) AS Distance,
+  SAFE_CAST(DistancE AS FLOAT64) AS Distance,
   Moving_Time,
   Elapsed_Time,
   SAFE_CAST(Min_Elevation AS FLOAT64) AS Min_Elevation,
