@@ -16,7 +16,8 @@ SELECT
   MAX(IFNULL(Max_HR, 0) ) AS Max_HR,
   AVG(IFNULL(Aerobic_TE, 0) ) AS Average_Aerobic_TE
 FROM
-  ${ref("garmin-staging")} 
+  ${ref("garmin-staging")}
 GROUP BY
   Activity_Date,
-  Activity_Type
+  Activity_Type,
+  Title
