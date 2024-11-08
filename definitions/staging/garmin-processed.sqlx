@@ -1,6 +1,5 @@
 config {
     type: "table",
-    uniqueKey: ["Activity_Timestamp"],
     schema: "keto",
     description: "Processed version of garmin-staging",
     tags: ["staging", "garmin"]
