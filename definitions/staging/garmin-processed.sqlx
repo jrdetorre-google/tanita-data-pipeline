@@ -1,0 +1,24 @@
+config {
+    type: "table",
+    uniqueKey: ["Activity_Timestamp"],
+    schema: "keto",
+    description: "Processed version of garmin-staging",
+    tags: ["staging", "garmin"]
+}
+
+SELECT
+  Activity_Date,
+  Activity_Type,
+  Title,
+  SUM(IFNULL(Calories, 0)) AS Total_Calories,
+  SUM(IFNULL(Total_Seconds, 0)) AS Total_Seconds,
+  AVG(IFNULL(Avg_HR, 0) ) AS Average_HR,
+  MAX(IFNULL(Max_HR, 0) ) AS Max_HR,
+  AVG(IFNULL(Aerobic_TE, 0) ) AS Average_Aerobic_TE
+FROM
+  ${ref("garmin-staging")} 
+GROUP BY
+  Activity_Date,
+  Activity_Type,
+  Title
+  ORDER BY 1  ,2
