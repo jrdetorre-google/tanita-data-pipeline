@@ -2,7 +2,7 @@ config {
     type: "table",
     schema: "keto",
     description: "Reporting combined data",
-    tags: ["reporting", "garmin", "tanita"]
+    tags: ["reporting", "garmin", "tanita","combined"]
 }
 
 SELECT
