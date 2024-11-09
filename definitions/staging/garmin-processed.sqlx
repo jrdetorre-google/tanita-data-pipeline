@@ -11,6 +11,7 @@ SELECT
   Title,
   SUM(IFNULL(Calories, 0)) AS Total_Calories,
   SUM(IFNULL(Total_Seconds, 0)) AS Total_Seconds,
+  SUM(IFNULL(Total_Minutes, 0)) AS Total_Minutes,
   AVG(IFNULL(Avg_HR, 0) ) AS Average_HR,
   MAX(IFNULL(Max_HR, 0) ) AS Max_HR,
   AVG(IFNULL(Aerobic_TE, 0) ) AS Average_Aerobic_TE
