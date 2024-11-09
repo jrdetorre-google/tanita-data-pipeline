@@ -1,0 +1,21 @@
+config {
+    type: "table",
+    schema: "keto",
+    description: "Reporting combined data",
+    tags: ["reporting", "garmin", "tanita"]
+}
+
+SELECT
+  t.M_Date AS Measure_Date,
+  t.* EXCEPT(M_Date,
+    M_Time,
+    M_DateTime),
+  g.* EXCEPT(Activity_Date)
+FROM
+  ${ref("tanita-reporting")} AS t
+LEFT JOIN
+  ${ref("garmin-reporting")} AS g
+ON
+  t.M_Date=g.Activity_Date
+ORDER BY
+  1 desc
