@@ -14,7 +14,7 @@ SELECT
   ROUND(AVG(Average_HR),1) AS Average_HR,
   MAX(Max_HR) AS Max_HR,
   ROUND(AVG(Average_Aerobic_TE),1) AS Average_Aerobic_TE,
-  ROUND(60*SUM(Total_Calories)/SUM(Total_Seconds),1) AS kCal_Minute,
+  ROUND(SUM(Total_Calories)/SUM(Total_Minutes),1) AS kCal_Minute,
   ROUND(SUM(Total_Calories)/3500,1) AS Kg_Eq
 FROM
   ${ref("garmin-processed")}
